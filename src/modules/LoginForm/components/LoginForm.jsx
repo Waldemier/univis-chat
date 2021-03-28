@@ -2,13 +2,19 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Block } from '../../../components';
 import { Form, Input } from 'antd';
-import { UserOutlined, LockOutlined } from '@ant-design/icons';
+import { LockOutlined, MailOutlined } from '@ant-design/icons';
+import { verificationStatusMethod } from '../../../utils/helpers';
 
-export default function LoginForm() {
+export default function LoginForm(props) {
 
-    const onFinish = (values) => {
-        console.log('Received values of form: ', values);
-    };
+    const {
+        values,
+        touched,
+        errors,
+        handleChange,
+        handleBlur,
+        handleSubmit,
+    } = props;
 
     return (
         <div>
@@ -20,27 +26,45 @@ export default function LoginForm() {
                 <Form
                     name="normal_login"
                     className="login-form"
-                    onFinish={onFinish}
+                    onFinish={handleSubmit}
                 >
                     <Form.Item
                         hasFeedback
-                        validateStatus="success"
+                        validateStatus={verificationStatusMethod('email', touched, errors, values)}
+                        help={errors.email}
                     >
-                        <Input size="large" style={{ height: 50 }} prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Username" />
-                    </Form.Item>
-                    <Form.Item>
                         <Input
+                            id="email"
+                            size="large"
+                            style={{ height: 50 }}
+                            prefix={<MailOutlined className="site-form-item-icon" />}
+                            placeholder="E-Mail"
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            value={values.email}
+                        />
+                    </Form.Item>
+                    <Form.Item
+                        hasFeedback
+                        validateStatus={verificationStatusMethod('password', touched, errors, values)}
+                        help={errors.password}
+                    >
+                        <Input
+                            id="password"
                             size="large"
                             style={{ height: 50 }}
                             prefix={<LockOutlined className="site-form-item-icon" />}
                             type="password"
                             placeholder="Password"
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            value={values.password}
                         />
                     </Form.Item>
                     <Form.Item>
                         <Button type="primary" size="large">
                             Увійти в аккаунт
-                </Button>
+                        </Button>
                     </Form.Item>
                     <Link className="auth__register-link" to="/registration">Зареєструватися</Link>
                 </Form>

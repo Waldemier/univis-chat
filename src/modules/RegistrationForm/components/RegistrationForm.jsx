@@ -2,8 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Block } from '../../../components';
 import { Form, Input } from 'antd';
-import { UserOutlined, LockOutlined } from '@ant-design/icons';
-import { MailOutlined, InfoCircleTwoTone } from '@ant-design/icons';
+import { UserOutlined, LockOutlined, MailOutlined, InfoCircleTwoTone } from '@ant-design/icons';
+import { verificationStatusMethod } from '../../../utils/helpers'
 
 export default function RegistrationForm(props) {
 
@@ -16,17 +16,7 @@ export default function RegistrationForm(props) {
         handleChange,
         handleBlur,
         handleSubmit,
-        isValid,
-        dirty,
     } = props;
-
-    const onFinish = (values) => {
-        console.log('Received values of form: ', values);
-    };
-
-    const temporaryStatusHandler = () => {
-        setStatus(!status);
-    }
 
     return (
         <div>
@@ -43,7 +33,7 @@ export default function RegistrationForm(props) {
                     >
                         <Form.Item
                             hasFeedback //for ant validate icon
-                            validateStatus={!touched.email ? '' : errors.email && touched.email ? "error" : "success"}
+                            validateStatus={verificationStatusMethod('email', touched, errors, values)}
                             help={errors.email}
                         >
                             <Input
@@ -57,12 +47,25 @@ export default function RegistrationForm(props) {
                                 value={values.email}
                             />
                         </Form.Item>
-                        <Form.Item>
-                            <Input size="large" style={{ height: 50 }} prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Ваше ім'я" />
+                        <Form.Item
+                            hasFeedback //for ant validate icon
+                            validateStatus={verificationStatusMethod('username', touched, errors, values)}
+                            help={errors.username}
+                        >
+                            <Input
+                                id="username"
+                                size="large"
+                                style={{ height: 50 }}
+                                prefix={<UserOutlined className="site-form-item-icon" />}
+                                placeholder="Ваше ім'я"
+                                onChange={handleChange}
+                                onBlur={handleBlur}
+                                value={values.username}
+                            />
                         </Form.Item>
                         <Form.Item
                             hasFeedback //for ant validate icon
-                            validateStatus={!touched.password ? '' : errors.password && touched.password ? "error" : "success"}
+                            validateStatus={verificationStatusMethod('password', touched, errors, values)}
                             help={errors.password}
                         >
                             <Input
@@ -77,13 +80,20 @@ export default function RegistrationForm(props) {
                                 value={values.password}
                             />
                         </Form.Item>
-                        <Form.Item>
+                        <Form.Item
+                            validateStatus={verificationStatusMethod('confirm', touched, errors, values)}
+                            help={errors.confirm}
+                        >
                             <Input
+                                id="confirm"
                                 size="large"
                                 style={{ height: 50 }}
                                 prefix={<LockOutlined className="site-form-item-icon" />}
                                 type="password"
                                 placeholder="Повторіть пароль"
+                                onChange={handleChange}
+                                onBlur={handleBlur}
+                                value={values.confirm}
                             />
                         </Form.Item>
                         <Form.Item>
