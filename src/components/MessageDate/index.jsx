@@ -11,7 +11,7 @@ const MessageDate = ({ date }) => (
 
 
 MessageDate.propTypes = {
-    date: PropTypes.string
+    date: PropTypes.object
 };
 
 export default MessageDate;

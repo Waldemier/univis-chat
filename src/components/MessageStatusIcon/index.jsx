@@ -3,7 +3,7 @@ import checkedSvg from '../../asserts/img/checked.svg';
 import uncheckedSvg from '../../asserts/img/unchecked.svg';
 import PropTypes from 'prop-types';
 
-const MessageStatusIcon = ({ isMe, hasRead }) => {
+const MessageStatusIcon = ({ isMe=true, hasRead }) => {
     return isMe && (hasRead ?
         (<img className="message__icon-read" src={checkedSvg} alt="Checked icon" />)
         :

@@ -4,3 +4,6 @@ export { default as Message } from './Message';
 export { default as DialogListItem } from './DialogListItem';
 export { default as MessageDate } from './MessageDate';
 export { default as MessageStatusIcon } from './MessageStatusIcon';
+export { default as DialogList } from './DialogList';
+export { default as AudioMessage } from './AudioMessage';
+export { default as DefaultAvatar } from './DefaultAvatar';
