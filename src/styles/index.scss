@@ -1,6 +1,12 @@
 @import "~reset-css";
 @import "~antd/dist/antd.css";
 
+@import "./layouts/chat";
+
+body {
+    background-color: #F4F7FD;
+}
+
 body, html, #root, .wrapper {
     height: 100%;
     color: #202020;
@@ -12,4 +18,18 @@ body, html, #root, .wrapper {
 
 * {
     outline: none;
+}
+
+.ant-btn-circle {
+    border: 0;
+    box-shadow: none;
+    color: #202020 !important;
+    opacity: 0.4;
+
+    &:hover {
+        opacity: 1;
+    }
+    &:after {
+        display: none;
+    }
 }

@@ -1,0 +1,89 @@
+.chat {
+    display: flex;
+    background-color: #fff;
+    height: 100%;
+    width: 1140px;
+    margin: 0 auto;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.04204);
+    
+    &__sidebar {
+        width: 320px;
+        border-right: 1px solid #f7f7f7;
+
+        &-header {
+            display: flex;
+            justify-content: space-between;
+            padding: 21px;
+            height: 64px;
+            border-bottom: 1px solid #f7f7f7;
+            margin-bottom: 20px;
+            align-items: center;
+
+            .ant-btn-circle {
+                position: relative;
+                left: 5px;
+            }
+            
+            & > div {
+                i {
+                    display: inline-block;
+                    margin-right: 5px;
+                }
+            }
+        }
+       
+        &-dialogs {
+            height: calc(100% - 138px);
+            .dialog-list {
+                height: 100%;
+                overflow: auto;
+                &__item {
+                    padding: 10px 20px;
+                    margin-bottom: 0;
+                    cursor: pointer;
+
+                    &.active, //if we have active class that dialog in list will be highlighted
+                    &:hover 
+                    {
+                        background-color: #f3f7ff;
+                    }
+                }
+            }
+        }
+    }
+
+    &__main {
+        flex: 1;
+        position: relative;
+
+        .ant-empty {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        &-header {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px;
+            border-bottom: 1px solid #f7f7f7;
+             
+            &-center {
+                text-align: center;
+            }
+            &-username {
+                display: block;
+                margin-bottom: 5px;
+                font-weight: 500;
+            }
+        }
+
+        &-chatting {
+            padding: 20px;
+            overflow: auto;
+            //height: calc(100% - 138px);
+            height: 577px; //577
+        }
+    }
+}

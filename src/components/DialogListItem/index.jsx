@@ -4,8 +4,6 @@ import className from 'classnames';
 import { format, isSameMonth, isSameDay, isSameWeek } from 'date-fns';
 import { DefaultAvatar } from '../';
 
-import './DialogListItem.scss';
-
 const setMessageTime = createdAt => {
     let currentDate = new Date();
     if (!isSameDay(createdAt, currentDate) && isSameWeek(createdAt, currentDate)) {

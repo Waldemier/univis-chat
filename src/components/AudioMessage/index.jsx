@@ -1,8 +1,8 @@
 import React from 'react'
 
-import wavesSvg from '../../asserts/img/waves.svg';
-import playSvg from '../../asserts/img/audio-play.svg';
-import pauseSvg from '../../asserts/img/audio-pause.svg';
+import wavesSvg from '../../assets/img/waves.svg';
+import playSvg from '../../assets/img/audio-play.svg';
+import pauseSvg from '../../assets/img/audio-pause.svg';
 
 import { convertTimeDuration } from '../../utils/helpers';
 

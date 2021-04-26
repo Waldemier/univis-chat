@@ -1,6 +1,6 @@
 import React from 'react'
-import checkedSvg from '../../asserts/img/checked.svg';
-import uncheckedSvg from '../../asserts/img/unchecked.svg';
+import checkedSvg from '../../assets/img/checked.svg';
+import uncheckedSvg from '../../assets/img/unchecked.svg';
 import PropTypes from 'prop-types';
 
 const MessageStatusIcon = ({ isMe=true, hasRead }) => {

@@ -18,7 +18,7 @@ export default function Message({ avatar_url, user, text, date, isMe, hasRead, a
             "message--image": attachments && attachments.length === 1
         })}>
             <div className="message__content">
-                <MessageStatusIcon isMe={isMe} hasRead={hasRead} />
+                {isMe && <MessageStatusIcon isMe={isMe} hasRead={hasRead} />}
                 <div className="message__avatar">
                     <img src={avatar_url} alt={`${user.fullname} avatar`} />
                 </div>

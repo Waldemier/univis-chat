@@ -7,3 +7,6 @@ export { default as MessageStatusIcon } from './MessageStatusIcon';
 export { default as DialogList } from './DialogList';
 export { default as AudioMessage } from './AudioMessage';
 export { default as DefaultAvatar } from './DefaultAvatar';
+export { default as Status } from './Status';
+export { default as MessagesInput } from './MessagesInput';
+export { default as Messages } from './Messages';
